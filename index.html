@@ -2,22 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tracker de Materias</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="layout">
         <aside class="sidebar">
+            <nav class="sidebar-menu">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Materias</a>
+                <a href="#">Estadísticas</a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#">Cerrar Sesión</a>
+            </div>
         </aside>
         <main class="content">
             <header class="header">
+                <h1>Mis Materias</h1>
             </header>
             <section class="dashboard">
+                <div class="card-materia">
+                    <h3>Programación I</h3>
+                    <p class="estado en-curso">En curso</p>
+                </div>
+                <div class="card-materia">
+                    <h3>Sistemas Operativos</h3>
+                    <p class="estado aprobada">Aprobada</p>
+                </div>
             </section>
         </main>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
