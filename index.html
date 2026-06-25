@@ -3,34 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tracker de Materias</title>
+    <title>Tracker de Materias - UPE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="layout">
+    <div id="welcome-screen" class="welcome-modal">
+        <div class="welcome-card">
+            <h2>Bienvenido al Tracker Académico</h2>
+            <p>Configurá tu perfil de estudiante para comenzar el seguimiento de tu carrera.</p>
+            <input type="text" id="username-input" placeholder="Ingresá tu nombre completo" autocomplete="off">
+            <button id="btn-start">Ingresar al Dashboard</button>
+        </div>
+    </div>
+
+    <div id="app-container" class="layout hidden">
         <aside class="sidebar">
-            <nav class="sidebar-menu">
-                <a href="#" class="active">Dashboard</a>
-                <a href="#">Materias</a>
-                <a href="#">Estadísticas</a>
-            </nav>
+            <div class="sidebar-top">
+                <div class="profile-section">
+                    <span class="avatar">🎓</span>
+                    <h2 id="user-display">Estudiante</h2>
+                    <span class="subtext">UPE - Desarrollo de Software</span>
+                </div>
+                <nav class="sidebar-menu">
+                    <a href="#" class="active">Panel General</a>
+                </nav>
+            </div>
             <div class="sidebar-footer">
-                <a href="#">Cerrar Sesión</a>
+                <button id="btn-reset-profile" class="btn-link">Restablecer Perfil</button>
             </div>
         </aside>
+
         <main class="content">
             <header class="header">
-                <h1>Mis Materias</h1>
+                <div class="header-title">
+                    <h1>Progreso Académico</h1>
+                    <p id="current-date"></p>
+                </div>
             </header>
-            <section class="dashboard">
-                <div class="card-materia">
-                    <h3>Programación I</h3>
-                    <p class="estado en-curso">En curso</p>
+
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-label">Progreso de Carrera</span>
+                    <div class="progress-container">
+                        <h2 id="metric-progress">0%</h2>
+                        <div class="progress-bar-bg">
+                            <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-materia">
-                    <h3>Sistemas Operativos</h3>
-                    <p class="estado aprobada">Aprobada</p>
+                <div class="metric-card">
+                    <span class="metric-label">Promedio General</span>
+                    <h2 id="metric-average">-.-</h2>
                 </div>
+                <div class="metric-card">
+                    <span class="metric-label">Materias Aprobadas</span>
+                    <h2 id="metric-count">0 / 22</h2>
+                </div>
+            </section>
+
+            <section class="filter-bar">
+                <button class="filter-btn active" data-filter="todos">Todas</button>
+                <button class="filter-btn" data-filter="1er Año">1er Año</button>
+                <button class="filter-btn" data-filter="2do Año">2do Año</button>
+                <button class="filter-btn" data-filter="3er Año">3er Año</button>
+            </section>
+
+            <section class="dashboard" id="dashboard-materias">
             </section>
         </main>
     </div>
