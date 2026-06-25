@@ -43,8 +43,12 @@ function init() {
     const opcionesFecha = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     currentDateEl.textContent = new Date().toLocaleDateString('es-AR', opcionesFecha);
 
-    if (appState.user) {
-        mostrarDashboard();
+    if (appState.user && appState.user.trim() !== '') {
+        welcomeScreen.classList.add('hidden');
+        appContainer.classList.remove('hidden');
+        userDisplay.textContent = appState.user;
+        actualizarMetricas();
+        renderizarMaterias();
     } else {
         welcomeScreen.classList.remove('hidden');
         appContainer.classList.add('hidden');
