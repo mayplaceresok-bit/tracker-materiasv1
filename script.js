@@ -56,11 +56,16 @@ function init() {
 }
 
 function mostrarDashboard() {
-    welcomeScreen.classList.add('hidden');
-    appContainer.classList.remove('hidden');
-    userDisplay.textContent = appState.user;
-    actualizarMetricas();
-    renderizarMaterias();
+    welcomeScreen.classList.add('fade-out');
+    
+    setTimeout(() => {
+        welcomeScreen.classList.add('hidden');
+        appContainer.classList.remove('hidden');
+        appContainer.classList.add('fade-in');
+        userDisplay.textContent = appState.user;
+        actualizarMetricas();
+        renderizarMaterias();
+    }, 400);
 }
 
 btnStart.addEventListener('click', () => {
@@ -76,7 +81,9 @@ btnResetProfile.addEventListener('click', () => {
     localStorage.clear();
     appState = { user: '', estados: {}, notas: {}, filtroActual: 'todos' };
     usernameInput.value = '';
+    welcomeScreen.classList.remove('fade-out');
     welcomeScreen.classList.remove('hidden');
+    appContainer.classList.remove('fade-in');
     appContainer.classList.add('hidden');
 });
 
